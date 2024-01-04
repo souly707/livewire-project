@@ -68,5 +68,7 @@ Route::prefix('/admin/')->name('admin.')->group(function () {
         Route::view('skills', 'admin.skills.index')->name('skills');
         //==================================================== Subscribers Page
         Route::view('subscribers', 'admin.subscribers.index')->name('subscribers');
+        //==================================================== Counters Page
+        Route::view('counters', 'admin.counters.index')->name('counters');
     });
 });

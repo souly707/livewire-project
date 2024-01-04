@@ -8,18 +8,20 @@
         <table class="table">
             <thead>
                 <tr class="text-left">
-                    <th width="30%">Skill</th>
-                    <th width="60%">Progress</th>
+                    <th width="50%">Name</th>
+                    <th width="20%">Counter</th>
+                    <th width="20%">Icon</th>
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody class="table-border-bottom-0">
-                @forelse ($data as $skill)
+                @forelse ($data as $record)
                 <tr>
                     <td>
-                        <strong>{{ $skill->name }}</strong>
+                        <strong>{{ $record->name }}</strong>
                     </td>
-                    <td>{{ $skill->progress }}</td>
+                    <td>{{ $record->count }}</td>
+                    <td><i class="{{ $record->icon }} fa-2x text-secondary mt-1"></i></td>
 
                     <td>
                         <div class="dropdown">
@@ -27,19 +29,14 @@
                                 <i class="bx bx-dots-vertical-rounded"></i>
                             </button>
                             <div class="dropdown-menu">
-                                <a wire:click.prevent="$dispatch('skillUpdate',{id: {{ $skill->id }}})"
+                                <a wire:click.prevent="$dispatch('counterUpdate',{id: {{ $record->id }}})"
                                     class="dropdown-item" href="#">
                                     <i class="bx bx-edit-alt me-1"></i>
                                     Edit
                                 </a>
-                                <a wire:click.prevent="$dispatch('skillDelete', {id: {{ $skill->id }}})" class="dropdown-item" href="#">
+                                <a wire:click.prevent="$dispatch('counterDelete', {id: {{ $record->id }}})" class="dropdown-item" href="#">
                                     <i class="bx bx-trash me-1"></i>
                                     Delete
-                                </a>
-
-                                <a wire:click.prevent="$dispatch('skillShow', {id: {{ $skill->id }}})" class="dropdown-item" href="#">
-                                    <i class="bx bx-show me-1"></i>
-                                    Show
                                 </a>
                             </div>
                         </div>
@@ -51,15 +48,6 @@
                 </tr>
                 @endforelse
             </tbody>
-            {{-- <tfoot>
-                <tr>
-                    <td colspan="3">
-                        <div>
-                            {{ $data->links() }}
-                        </div>
-                    </td>
-                </tr>
-            </tfoot> --}}
         </table>
         <div class="border-top">
             <div class="mt-3">

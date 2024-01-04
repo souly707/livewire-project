@@ -21,7 +21,6 @@
 
     <!-- Icons. Uncomment required icon fonts -->
     <link rel="stylesheet" href="{{asset('admin-assets')}}/vendor/fonts/boxicons.css" />
-
     <!-- Core CSS -->
     <link rel="stylesheet" href="{{asset('admin-assets')}}/vendor/css/core.css" class="template-customizer-core-css" />
     <link rel="stylesheet" href="{{asset('admin-assets')}}/vendor/css/theme-default.css"
