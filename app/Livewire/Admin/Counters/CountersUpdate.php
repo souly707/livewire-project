@@ -7,7 +7,7 @@ use Livewire\Component;
 
 class CountersUpdate extends Component
 {
-    protected $listeners = ['counterUpdate', 'alertMessage'];
+    protected $listeners = ['counterUpdate'];
 
     public $counter, $name, $count,$icon;
 
@@ -38,12 +38,8 @@ class CountersUpdate extends Component
         $data = $this->validate();
         // update the data in database
         $this->counter->update($data);
-        // alert the user
-        // session()->flash('message', 'Record Updated Successfully');
-        // session()->flash('alert-type', 'primary');
         // hide the modal
         $this->dispatch('editModalToggle');
-        $this->dispatch('alert-message');
 
         // refresh skill data component
         $this->dispatch('refreshData')->to(CountersData::class);

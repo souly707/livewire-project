@@ -32,6 +32,7 @@ class CountersDelete extends Component
         $this->reset('counter');
         // hide the modal
         $this->dispatch('deleteModalToggle');
+        $this->dispatch('alertMessage',['message' =>'Record Deleted Successfully','alert-type' => 'primary']);
         // refresh skill data component
         $this->dispatch('refreshData')->to(CountersData::class);
     }

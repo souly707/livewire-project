@@ -45,4 +45,8 @@
     window.addEventListener('showModalToggle', event => {
         $('#showModal').modal('toggle');
 })
+
+    window.addEventListener('alertMessage', event => {
+        $('#alert-message').show();
+})
 </script>
